@@ -6,20 +6,28 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/parcel")
 @RequiredArgsConstructor
 public class ParcelController {
     @Autowired
     final ParcelService service;
-    @GetMapping("/get-parcel")
-    public Parcel getParcel(){
-      return new Parcel(1,"Nipun","0787548652","nipun66@gmail.com","Alawwa","Sadeep","0774433123","sadeep@gmail.com","Panadura",20,"Cocount","Alawwa","Panadura",220);
+    @GetMapping("/get-all")
+    public List<Parcel> getParcel() {
+        return service.getAll();
     }
+        //return new Parcel(1,"Nipun","0787548652","nipun66@gmail.com","Alawwa","Sadeep","0774433123","sadeep@gmail.com","Panadura",20,"Cocount","Alawwa","Panadura",220);
+
 
     @PostMapping("/add-parcel")
     public void addParcel(@RequestBody Parcel parcel){
         service.addParcel(parcel);
+    }
 
+    @GetMapping("/search-by-id/{id}")
+    public Parcel getParcelById(@PathVariable Integer id){
+        return service.searchParcelById(id);
     }
 }
