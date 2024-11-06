@@ -35,7 +35,7 @@ public class ParcelServiceImpl implements ParcelService {
 
     @Override
     public void deleteParcelById(Integer id) {
-
+        repository.deleteById(id);
     }
 
     @Override
@@ -45,6 +45,6 @@ public class ParcelServiceImpl implements ParcelService {
 
     @Override
     public void updateParcelById(Parcel parcel) {
-
+        repository.save(mapper.map(parcel,ParcelEntity.class));
     }
 }

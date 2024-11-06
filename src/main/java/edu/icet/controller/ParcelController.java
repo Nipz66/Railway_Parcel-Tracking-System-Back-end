@@ -30,4 +30,15 @@ public class ParcelController {
     public Parcel getParcelById(@PathVariable Integer id){
         return service.searchParcelById(id);
     }
+
+    @DeleteMapping("/delete-by-id/{id}")
+    public void deleteById(@PathVariable Integer id){
+        service.deleteParcelById(id);
+    }
+
+    @PutMapping("/update-parcel")
+    public void updateParcel(@RequestBody Parcel parcel){
+        service.updateParcelById(parcel);
+    }
+
 }
