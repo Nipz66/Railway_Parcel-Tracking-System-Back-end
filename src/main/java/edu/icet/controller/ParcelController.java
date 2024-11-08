@@ -11,6 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/parcel")
 @RequiredArgsConstructor
+@CrossOrigin
 public class ParcelController {
     @Autowired
     final ParcelService service;
