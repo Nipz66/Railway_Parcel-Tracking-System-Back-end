@@ -29,5 +29,4 @@ public class Parcel {
     private LocalDateTime createdAt;
 
 
-
 }

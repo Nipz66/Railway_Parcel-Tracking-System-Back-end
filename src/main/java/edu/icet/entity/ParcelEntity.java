@@ -31,8 +31,12 @@ public class ParcelEntity {
     private String originStation;
     private String destinationStation;
     private double payment;
+
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now(); // Set createdAt to the current date and time
+    }
 }
-
