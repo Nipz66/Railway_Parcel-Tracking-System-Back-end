@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.time.LocalDateTime;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,6 +26,8 @@ public class Parcel {
     private String originStation;
     private String destinationStation;
     private double payment;
+    private LocalDateTime createdAt;
+
 
 
 }

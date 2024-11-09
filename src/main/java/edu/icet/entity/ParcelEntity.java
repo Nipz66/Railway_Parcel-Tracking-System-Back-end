@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.time.LocalDateTime;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29,4 +31,8 @@ public class ParcelEntity {
     private String originStation;
     private String destinationStation;
     private double payment;
+    @Column(name = "created_at", updatable = false)
+    private LocalDateTime createdAt;
+
 }
+

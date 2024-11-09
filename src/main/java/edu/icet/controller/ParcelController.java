@@ -2,10 +2,12 @@ package edu.icet.controller;
 
 import edu.icet.dto.Parcel;
 import edu.icet.service.ParcelService;
+import jakarta.persistence.PrePersist;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -40,6 +42,11 @@ public class ParcelController {
     @PutMapping("/update-parcel")
     public void updateParcel(@RequestBody Parcel parcel){
         service.updateParcelById(parcel);
+    }
+
+    @PrePersist
+    protected void onCreate() {
+        LocalDateTime CreatedAt = LocalDateTime.now();
     }
 
 }
