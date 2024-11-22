@@ -43,10 +43,10 @@ public class JwtUtil {
 
     private Date extractExpirationDate(String token) {
         JwtParser parser = Jwts.parser()
-                .setSigningKey(secretKey) // Set the signing key
+                .setSigningKey(secretKey)
                 .build(); // Build the parser
-        return parser.parseClaimsJws(token) // Parse the token
+        return parser.parseClaimsJws(token)
                 .getBody() // Get the claims
-                .getExpiration(); // Extract the expiration date
+                .getExpiration();
     }
 }
