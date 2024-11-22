@@ -17,4 +17,4 @@ spring:
           enable-default-security: false  # Disable default security configuration (optional)
 
           jwt:
-            secret: my-very-secure-secret-key
+            secret: qL0xkzE+m/7yOvBt2nD4Lb5RWnl1FslFUMGdE+KQW68=

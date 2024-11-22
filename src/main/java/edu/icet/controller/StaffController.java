@@ -5,7 +5,6 @@ import edu.icet.dto.Staff;
 import edu.icet.security.JwtUtil;
 import edu.icet.service.StaffService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -20,23 +19,22 @@ import java.util.List;
 @CrossOrigin
 public class StaffController {
 
-    @Autowired
     private final StaffService staffService;
-
-    @Autowired
     private final AuthenticationManager authenticationManager;
-
-    @Autowired
     private final JwtUtil jwtUtil;
 
     @PostMapping("/login")
     public String login(@RequestBody LoginRequest loginRequest) {
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword())
-        );
+        try {
+            Authentication authentication = authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword())
+            );
 
-        User user = (User) authentication.getPrincipal();
-        return jwtUtil.generateToken(user.getUsername());
+            User user = (User) authentication.getPrincipal();
+            return jwtUtil.generateToken(user.getUsername());
+        } catch (Exception e) {
+            throw new RuntimeException("Invalid credentials. Please try again.");
+        }
     }
 
     @PostMapping("/register")

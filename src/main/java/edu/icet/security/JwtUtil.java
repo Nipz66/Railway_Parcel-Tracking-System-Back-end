@@ -11,8 +11,9 @@ import java.util.Map;
 @Component
 public class JwtUtil {
 
-    @Value("${jwt.secret}")  // Load the secret key from application.yml or application.properties
+    @Value("${jwt.secret:default-secret-key}")  // Default to "default-secret-key" if property is missing
     private String secretKey;
+
 
     // Generate a JWT token
     public String generateToken(String username) {
