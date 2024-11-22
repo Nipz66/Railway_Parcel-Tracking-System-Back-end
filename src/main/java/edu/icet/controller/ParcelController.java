@@ -21,7 +21,7 @@ public class ParcelController {
     public List<Parcel> getParcel() {
         return service.getAll();
     }
-        //return new Parcel(1,"Nipun","0787548652","nipun66@gmail.com","Alawwa","Sadeep","0774433123","sadeep@gmail.com","Panadura",20,"Cocount","Alawwa","Panadura",220);
+    //return new Parcel(1,"Nipun","0787548652","nipun66@gmail.com","Alawwa","Sadeep","0774433123","sadeep@gmail.com","Panadura",20,"Cocount","Alawwa","Panadura",220);
 
 
     @PostMapping("/add-parcel")
