@@ -19,5 +19,6 @@ public class Staff {
     private String email;
     private String station;
     private String role;
+    private String password;
 
 }

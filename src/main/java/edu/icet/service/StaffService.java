@@ -11,4 +11,5 @@ public interface StaffService {
     void deleteStaffById(Integer id);
     Staff searchStaffById(Integer id);
     void updateStaffById(Staff staff);
+    Staff registerStaff(Staff staff);
 }

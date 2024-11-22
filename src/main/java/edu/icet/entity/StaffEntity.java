@@ -25,5 +25,6 @@ public class StaffEntity {
     private String email;
     private String station;
     private String role;
+    private String password;
 
 }

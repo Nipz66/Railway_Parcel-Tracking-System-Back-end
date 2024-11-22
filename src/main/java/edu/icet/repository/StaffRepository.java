@@ -7,4 +7,10 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface StaffRepository extends JpaRepository<StaffEntity,Integer> {
+    static Staff save(Staff staff) {
+        return staff;
+    }
+
+    boolean existsByEmail(String email);
+
 }

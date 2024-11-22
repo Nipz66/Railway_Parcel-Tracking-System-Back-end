@@ -7,3 +7,14 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+
+      spring:
+        security:
+          user:
+            name: admin            # Default username for basic security setup
+            password: admin123      # Default password
+            roles: ADMIN            # Default role
+          enable-default-security: false  # Disable default security configuration (optional)
+
+          jwt:
+            secret: my-very-secure-secret-key
